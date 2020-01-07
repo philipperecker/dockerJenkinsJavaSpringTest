@@ -8,12 +8,16 @@ pipeline {
         }
         stage('Maven Package'){
             steps {
-                sh 'mvn package'
+                withMaven(
+                    sh 'mvn package'
+                )
             }
         }
         stage('Test'){
             steps {
-                sh 'mvn test'
+                withMaven(
+                    sh 'mvn test'
+                )
             }
         }
     }
